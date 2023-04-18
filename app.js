@@ -9,29 +9,39 @@ mongoose.connect(
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    firstName : {
-        type: String,
-        required: true
+const userSchema = new Schema(
+  {
+    userName: {
+      type: String,
+      required: true,
     },
-    lastName : {
-        type: String,
-        required: true
+    firstName: {
+      type: String,
+      required: true,
     },
-    email : {
-        type: String,
-        required: true,
-        unique: true
+    firstName: {
+      type: String,
+      required: true,
     },
-    password : {
-        type: String,
-        required: true
-    }
- 
-}, {
-  timestamps: true,
-  versionKey:false
-});
+    lastName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
 
 const User = mongoose.model("User", userSchema);
 
@@ -56,12 +66,18 @@ app.get("/users", async (req, res)=>{
 
 app.post('/users', async (req, res) => {
   const newUser = new User({
-    username: req.body.username
+    userName: req.body.userName,
+    firstname: req.body.username,
+    lastname:req.body.lastname,
+    email:req.body.email,
+    password:req.body.password
   });
 
   const savedUser = await newUser.save();
 
-  res.json(savedUser);
+  res.status(201).json(savedUser);
+
+  if(!userName){  return res.status(400).send('username is required')}
 })
 
 app.listen(port, () => {
