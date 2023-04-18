@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 
 import { deleteUser } from "./controllers/deleteUser.js";
 import { getSingleUser } from "./controllers/getUserById.js";
+import createUser from "./controllers/createUser.js";
+import displayAllUsers from "./controllers/displayAllUsers.js";
+import loginUser from "./controllers/loginUser.js";
 
 dotenv.config();
 
@@ -44,16 +47,10 @@ const userSchema = new mongoose.Schema(
 
 export const User = mongoose.model("User", userSchema);
 
-app.get("/users", async (req, res) => {
-  const users = await User.find();
-  res.json(users);
-});
+app.get("/users", displayAllUsers);
+app.post("/users/login", loginUser)
 app.get("/users/:id", getSingleUser);
-app.post("/users", async (req, res) => {
-  const user = new User(req.body);
-  await user.save();
-  res.json(user);
-});
+app.post("/users", createUser);
 app.delete("/users/:id", deleteUser);
 
 app.listen(port, () => {
