@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { deleteUser } from "./controllers/deleteUser.js";
 import { getSingleUser } from "./controllers/getUserById.js";
 
+
 mongoose.connect(
   "mongodb+srv://immikel:JFzl8BliKy3NrA8P@cluster0.hmbiy9y.mongodb.net/test",
   { useNewUrlParser: true, useUnifiedTopology: true }
@@ -12,6 +13,10 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+    userName: {
+      type: String,
+      required: true,
+    },
     firstName: {
       type: String,
       required: true,
@@ -36,7 +41,9 @@ const userSchema = new Schema(
   }
 );
 
+
 export const User = mongoose.model("User", userSchema);
+
 
 const app = express();
 
@@ -49,19 +56,32 @@ app.get("/users", async (req, res) => {
 
   res.json(users);
 });
-
+    
 app.get("/users/:id", getSingleUser);
 
 app.delete("/users/:id", deleteUser);
 
 app.post("/users", async (req, res) => {
   const newUser = new User({
-    username: req.body.username,
+    userName: req.body.userName,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+
   });
 
   const savedUser = await newUser.save();
 
+
+  res.status(201).json(savedUser);
+
+  if (!userName) {
+    return res.status(400).send("username is required");
+  }
+  
   res.json(savedUser);
+
 });
 
 app.listen(port, () => {
