@@ -1,5 +1,6 @@
 import jtw from "jsonwebtoken"
-import {User} from '../app.js'
+import {User} from "../models/user.js"
+
 const auth = async (req, res, next) => {
     try {
         const token = req.headers.auth;
