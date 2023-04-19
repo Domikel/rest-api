@@ -9,3 +9,5 @@ router.get("/comments/:id", seeAllCommentsByPost);
 
 router.delete("/comments/:id",deleteComment);
 
+
+export default router;

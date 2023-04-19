@@ -8,6 +8,7 @@ import userRoute from "./route/user.js";
 import postRouter from './route/posts.js'
 import likeRouter from './route/likes.js'
 import friendRouter from './route/friends.js'
+import CommentRouter from './route/comments.js'
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use("/api", userRoute);
 app.use("/api", postRouter);
 app.use("/api", likeRouter);
 app.use("/api", friendRouter);
+app.use("/api", CommentRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
