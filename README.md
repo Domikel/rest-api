@@ -104,7 +104,7 @@ This API has the following endpoints:
 
 ## Authors
 | Aleksandra | [@alexgrubor](http://github.com/alexgrubor) |
-| Dom | [@domikel](https://github.com/domikel)|
+| Miguel | [@domikel](https://github.com/domikel)|
 | Arber | [@arbertotraku](https://github.com/ArberTotraku)|
 | Alexandr | [@alexpavlyukovets](https://github.com/alexpavlyukovets) |
 
