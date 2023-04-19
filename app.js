@@ -5,6 +5,7 @@ import cors from "cors";
 
 
 import userRoute from "./route/user.js";
+import postRouter from './route/posts.js'
 
 
 dotenv.config();
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGODB, {
 });
 
 app.use("/api", userRoute);
+app.use("/api", postRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);

@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     text: {
       type: String,
       required: true,
@@ -10,6 +15,7 @@ const postSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "users",
     },
+    
   },
   {
     timestamps: true,
