@@ -13,15 +13,18 @@ To check if you have Node.js installed, open your terminal or command prompt and
 
 
 node -v
+
 If you have Node.js installed, you should see the version number printed in your terminal. To check if you have npm installed, run the following command:
 
 
 npm -v
+
 If you have npm installed, you should see the version number printed in your terminal. To check if you have MongoDB installed, run the following command:
 
 
 
 mongod --version
+
 If you have MongoDB installed, you should see the version number printed in your terminal.
 
 If any of these prerequisites are missing, please refer to the respective documentation for installation instructions.
