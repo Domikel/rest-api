@@ -19,8 +19,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    friends: []
-
+    profilePicture: {
+      type: String,
+      default: function(){
+        return `https://ui-avatars.com/api/?name=${this.firstName}+${this.lastName}&background=random&color=fff&rounded=true&size=50`
+      }
+    }
   },
   {
     timestamps: true,

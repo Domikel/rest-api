@@ -10,6 +10,9 @@ const likeSchema = mongoose.Schema({
     ref: "posts",
   },
 
+}, {
+  timestamps: true,
+  versionKey:false
 });
 
 export const Like = mongoose.model("likes", likeSchema);

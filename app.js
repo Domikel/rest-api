@@ -6,6 +6,8 @@ import cors from "cors";
 
 import userRoute from "./route/user.js";
 import postRouter from './route/posts.js'
+import likeRouter from './route/likes.js'
+import friendRouter from './route/friends.js'
 
 
 dotenv.config();
@@ -22,6 +24,8 @@ mongoose.connect(process.env.MONGODB, {
 
 app.use("/api", userRoute);
 app.use("/api", postRouter);
+app.use("/api", likeRouter);
+app.use("/api", friendRouter);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
