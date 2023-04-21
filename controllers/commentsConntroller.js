@@ -1,4 +1,4 @@
-
+import {Comment} from '../models/comments.js'
 export const addNewComment = async (req, res) => {
   try {
     const comment = new Comment(req.body);
@@ -6,10 +6,11 @@ export const addNewComment = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        comment,
+        comment
       },
     });
   } catch (err) {
+    
     res.status(400).json({
       status: "fail",
       message: err,
@@ -38,7 +39,6 @@ export const seeAllCommentsByPost = async (req, res) => {
         const comments = await Comment.find({ post: req.params.id })
         .populate("user")
         .populate("post");
-        console.log(comments.length);
         res.status(200).json({
         status: "success",
         data: {

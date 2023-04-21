@@ -34,3 +34,12 @@ export const deleteFriend = async(req, res)=>{
         res.status(404).json({message: err.message})
     }
 }
+
+export const getAllFriends = async(req, res)=> {
+    try{
+        const friends = await Friend.find()
+        res.status(200).json(friends)
+    }catch(err){
+        res.status(404).json({message: err.message})
+    }
+}

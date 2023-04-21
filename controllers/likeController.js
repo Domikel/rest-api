@@ -37,7 +37,6 @@ export const getAllLikesPerPost = async (req, res) => {
     const likes = await Like.find({ post: req.params.id })
       .populate("user")
       .populate("post");
-    console.log(likes.length);
     res.status(200).json({
       status: "success",
       data: {

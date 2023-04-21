@@ -36,7 +36,7 @@ export const getSinglePost = async (req, res) => {
 
 export const getAllPosts = async (req, res) => {
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().populate('user');
         res.status(200).json({
         status: "success",
         data: {
