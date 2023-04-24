@@ -106,7 +106,7 @@ This API has the following endpoints:
 | Aleksandra | [@alexgrubor](http://github.com/alexgrubor) |
 | Miguel | [@domikel](https://github.com/domikel)|
 | Arber | [@arbertotraku](https://github.com/ArberTotraku)|
-| Alexandr | [@alexpavlyukovets](https://github.com/alexpavlyukovets) |
+
 
 
 
